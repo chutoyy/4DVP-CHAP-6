@@ -1,1 +1,13 @@
 name: "analyse semgrep"
+on: 
+  push:
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep:1.1.0
+    if: (github.actor != 'dependabot[bot]')
+    steps:
+      - uses: actions/checkout
+      
