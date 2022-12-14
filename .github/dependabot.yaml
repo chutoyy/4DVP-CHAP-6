@@ -1,0 +1,14 @@
+version:
+updates:
+  - packages-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+  - packages-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+  - packages-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "daily"
