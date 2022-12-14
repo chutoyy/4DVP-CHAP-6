@@ -10,4 +10,10 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
     steps:
       - uses: actions/checkout
-      
+      - run: semgrep ci --sarif --output=semgrep.sarif
+        env:
+          SEMGREP_RULES: p/default
+      - uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: semgrep.sarif
