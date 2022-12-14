@@ -1,6 +1,6 @@
 name: "Hadolint"
 on:
-  push:
+  #push:
 jobs:
   hadolint_job:
     runs-on: ubuntu-latest

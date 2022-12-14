@@ -1,0 +1,20 @@
+name: "trivy"
+on:
+  workflow_dispatch:
+
+jobs:
+  trivy_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          docker build -t chutoyy/image_test:demo
+      - uses: aquasecurity/trivy-action@0.8.0
+        with:
+          image-ref: 'chutoyy/image_test:demo'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+      - uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'

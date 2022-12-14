@@ -1,6 +1,6 @@
 name: "analyse semgrep"
 on: 
-  push:
+  #push:
 
 jobs:
   semgrep:
