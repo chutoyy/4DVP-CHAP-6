@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          docker build -t chutoyy/image_test:demo
+          docker build -t chutoyy/image_test:demo .
       - uses: aquasecurity/trivy-action@0.8.0
         with:
           image-ref: 'chutoyy/image_test:demo'
